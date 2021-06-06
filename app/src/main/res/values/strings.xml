@@ -1,9 +1,6 @@
 <resources>
     <string name="app_name">Dota Database</string>
 
-    <string name="DummyEmail">christian.wijaya@student.umn.ac.id</string>
-    <string name="DummyPassword">natureee1</string>
-
     <!-- for spinners -->
     <string-array name="positions">
         <item>Carry</item>

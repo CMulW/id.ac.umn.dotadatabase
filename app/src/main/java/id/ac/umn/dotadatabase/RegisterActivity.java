@@ -28,7 +28,6 @@ public class RegisterActivity extends AppCompatActivity {
     protected FirebaseAnalytics firebaseAnalytics;
     protected FirebaseAuth firebaseAuth;
 
-
     //request code for those who need to launch this activity
     public static final int REQUEST_CODE_REGISTER_SUCCESS = 90;
     public static final int REQUEST_CODE_REGISTER_CANCEL = 91;

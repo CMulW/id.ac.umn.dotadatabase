@@ -31,7 +31,6 @@
             android:layout_marginTop="8dp"
             android:inputType="textEmailAddress"
             android:hint="Email"
-            android:text="@string/DummyEmail"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/loginIv1" />
@@ -42,7 +41,6 @@
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:hint="Password"
-            android:text="@string/DummyPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/loginEtEmail" />
