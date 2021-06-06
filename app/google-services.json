@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "808798494459",
+    "project_id": "dota-database-4bedd",
+    "storage_bucket": "dota-database-4bedd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:808798494459:android:90f0f83d180517df84da5e",
+        "android_client_info": {
+          "package_name": "id.ac.umn.dotadatabase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "808798494459-de0opd2ks1ndrj2biqau58p9eglqa7a3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4pjVDzFwkFYGiY0Yb5LBv6eiSBli1BQ0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "808798494459-de0opd2ks1ndrj2biqau58p9eglqa7a3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
