@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -16,6 +17,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
 
 public class RegisterActivity extends AppCompatActivity {
     protected EditText registerEtUsername;
@@ -24,9 +27,13 @@ public class RegisterActivity extends AppCompatActivity {
     protected EditText registerEtConfirmPassword;
     protected Button registerBtnRegister;
 
+    protected Profile newProfile;
+
     //firebase singletons
     protected FirebaseAnalytics firebaseAnalytics;
     protected FirebaseAuth firebaseAuth;
+    protected FirebaseFirestore firestore;
+    protected FirebaseStorage firebaseStorage;
 
     //request code for those who need to launch this activity
     public static final int REQUEST_CODE_REGISTER_SUCCESS = 90;
@@ -45,6 +52,8 @@ public class RegisterActivity extends AppCompatActivity {
         //firebase singletons
         firebaseAnalytics = FirebaseAnalytics.getInstance(this);
         firebaseAuth = FirebaseAuth.getInstance();
+        firestore = FirebaseFirestore.getInstance();
+        firebaseStorage = FirebaseStorage.getInstance();
     }
 
     @Override
@@ -68,7 +77,7 @@ public class RegisterActivity extends AppCompatActivity {
                             "Mustn't be empty!",
                             Toast.LENGTH_SHORT
                     ).show();
-                }else if(TextUtils.equals(password, confirmPassword)) {
+                }else if( ! TextUtils.equals(password, confirmPassword) ) {
                     Toast.makeText(
                             RegisterActivity.this,
                             "Passwords don't match!",
@@ -88,9 +97,38 @@ public class RegisterActivity extends AppCompatActivity {
                 if(task.isSuccessful()){
                     setResult(REQUEST_CODE_REGISTER_SUCCESS, new Intent().putExtra("username", username));
                 }
+                //generate basic profile
+                newProfile = new Profile(
+                        username,
+                        email,
+                        0,
+                        1,
+                        2,
+                        3,
+                        0,
+                        1
+                );
+                //upload profile data to firestore
+                firestore
+                        .collection(getString(R.string.firestore_user_profile_data_path))
+                        .document(email)
+                        .set(newProfile);
+                //put default images into internal storage
+                newProfile.SavePictureIntoInternal(
+                        ((BitmapDrawable)getDrawable(R.drawable.dota_2)).getBitmap(),
+                        Profile.PICTURE_TYPE.DISPLAY_PICTURE,
+                        RegisterActivity.this
+                );
+                newProfile.SavePictureIntoInternal(
+                        ((BitmapDrawable)getDrawable(R.drawable.dota_2)).getBitmap(),
+                        Profile.PICTURE_TYPE.BANNER_PICTURE,
+                        RegisterActivity.this
+                );
+                //upload the images into firebase storage
+                newProfile.SyncPictureUp(Profile.PICTURE_TYPE.DISPLAY_PICTURE, RegisterActivity.this);
+                newProfile.SyncPictureUp(Profile.PICTURE_TYPE.BANNER_PICTURE, RegisterActivity.this);
                 finish();
             }
         });
-        //still need to generate basic profile and profile data to firestore
     }
 }

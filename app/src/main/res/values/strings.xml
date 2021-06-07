@@ -1,8 +1,11 @@
 <resources>
     <string name="app_name">Dota Database</string>
+    <string name="app_package">id.ac.umn.dotadatabase</string>
+
+    <string name="firestore_user_profile_data_path">user_profile_data</string>
 
     <!-- for spinners -->
-    <string-array name="positions">
+    <string-array name="roles">
         <item>Carry</item>
         <item>Midlane</item>
         <item>Offlane</item>

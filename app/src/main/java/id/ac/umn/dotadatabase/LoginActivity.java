@@ -50,6 +50,8 @@ public class LoginActivity extends AppCompatActivity {
                             "Successfully registered " + result.getData().getStringExtra("username"),
                             Toast.LENGTH_LONG
                     ).show();
+                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                    finish();
                     break;
                 case RegisterActivity.REQUEST_CODE_REGISTER_CANCEL:
                     Toast.makeText(
@@ -77,11 +79,7 @@ public class LoginActivity extends AppCompatActivity {
         //firebase singletons
         firebaseAnalytics = FirebaseAnalytics.getInstance(this);
         firebaseAuth = FirebaseAuth.getInstance();
-    }
 
-    @Override
-    protected void onStart(){
-        super.onStart();
         //fill in loginEtEmail with data from sharedPreference
         loginEtEmail.setText(loginSharedPreference.getString("email", null));
         //DEBUGGING, fill in the pasword to speed up development
@@ -125,6 +123,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                    finish();
                 }else{
                     Toast.makeText(
                             LoginActivity.this,

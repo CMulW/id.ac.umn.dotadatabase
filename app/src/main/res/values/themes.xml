@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.DotaDatabase" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.DotaDatabase" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Primary brand color.
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -28,6 +28,36 @@
         <item name="android:colorBackground">@color/backgroundGray</item>
         <item name="android:editTextColor">?attr/colorOnPrimary</item>
         <item name="android:textColorHint">?attr/colorPrimaryVariant</item>
+        <item name="android:buttonStyle">@style/customButtonStyle</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
         <item name="titleTextColor">?attr/colorOnPrimary</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:textViewStyle">@style/customTextViewStyle</item>
+
+    </style>
+
+    <style name="customTextViewStyle" parent="@style/Widget.AppCompat.TextView">
+        <item name="android:textColor">?colorOnPrimary</item>
+    </style>
+
+    <style name="customButtonStyle" parent="@style/Widget.AppCompat.Button">
+        <item name="android:textColor">?colorOnPrimary</item>
+        <item name="android:backgroundTint">?colorPrimary</item>
+    </style>
+
+    <style name="customToolbarStyle" parent="@style/Widget.AppCompat.Light.ActionBar">
+        <item name="android:background">?attr/colorPrimary</item>
+        <item name="actionOverflowButtonStyle">@style/customActionOverflowButton</item>
+    </style>
+    <style name="customActionOverflowButton">
+        <item name="android:src">@android:drawable/arrow_down_float</item>
+        <item name="android:drawableTint">?attr/colorOnPrimary</item>
+        <item name="android:paddingRight">15dp</item>
+    </style>
+
+    <style name="customDialogStyle" parent="@style/Widget.AppCompat.Light.PopupMenu">
+        <item name="android:itemBackground">?attr/colorPrimaryVariant</item>
+        <item name="android:backgroundTint">?attr/colorPrimaryVariant</item>
+        <item name="android:background">?attr/colorPrimaryVariant</item>
     </style>
 </resources>
