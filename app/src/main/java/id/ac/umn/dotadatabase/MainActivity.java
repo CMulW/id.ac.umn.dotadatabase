@@ -8,6 +8,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -19,6 +21,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class MainActivity extends AppCompatActivity {
     protected Toolbar mainToolbar;
     protected Profile profile;
+    protected ImageView mainIvHeroes;
+    protected ImageView mainIvItems;
 
     //firebase singletons
     FirebaseAuth firebaseAuth;
@@ -31,12 +35,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mainToolbar = findViewById(R.id.mainToolbar);
         setSupportActionBar(mainToolbar);
+        mainIvHeroes =  findViewById(R.id.mainIvHeroes);;
+        mainIvItems =  findViewById(R.id.mainIvItems);
 
         //firebase singletons
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
         firestore = FirebaseFirestore.getInstance();
 
+        //download profile data from firestore and firebase storage
         firestore
                 //specify which collection, that is, the collection with the user data
                 //and specify which document in that collection, that is, the collection containing current user's data
@@ -55,6 +62,19 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 });
+
+        mainIvHeroes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, HeroesMenuActivity.class));
+            }
+        });
+        mainIvItems.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ItemsMenuActivity.class));
+            }
+        });
     }
 
     @Override

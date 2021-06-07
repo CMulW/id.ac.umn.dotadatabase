@@ -9,9 +9,15 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="backgroundGray">#373737</color>
+    <color name="darkGray1">#272727</color>
+    <color name="darkGray2">#1B1B1B</color>
     <color name="foregroundGray1">#454545</color>
     <color name="foregroundGray2">#646464</color>
     <color name="errorMessageRed">#FF3B3B</color>
     <color name="dotaRed">#91220F</color>
     <color name="transparent">#00000000</color>
+
+    <color name="strengthRed">#9A544B</color>
+    <color name="agilityGreen">#657A49</color>
+    <color name="intelligenceBlue">#3E7785</color>
 </resources>

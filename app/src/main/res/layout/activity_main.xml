@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/darkGray1">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/mainToolbar"
@@ -20,9 +21,6 @@
         android:id="@+id/mainConstraintLayout1"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/mainToolbar">
@@ -31,7 +29,8 @@
             android:id="@+id/mainIvHeroes"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:src="@drawable/dota_2"
+            android:scaleType="centerCrop"
+            android:src="@drawable/heroes"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -41,33 +40,42 @@
             android:id="@+id/mainTvHeroes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
-            android:text="Heroes"
+            android:fontFamily="serif"
+            android:shadowColor="#000000"
+            android:shadowDx="10"
+            android:shadowDy="10"
+            android:shadowRadius="10"
+            android:text="HEROES"
             android:textSize="24sp"
+            android:textStyle="italic"
             app:layout_constraintBottom_toBottomOf="@+id/mainIvHeroes"
             app:layout_constraintEnd_toEndOf="@+id/mainIvHeroes"
-            app:layout_constraintStart_toStartOf="@+id/mainIvHeroes" />
+            app:layout_constraintStart_toStartOf="@+id/mainIvHeroes"
+            app:layout_constraintTop_toTopOf="@+id/mainIvHeroes" />
 
         <ImageView
             android:id="@+id/mainIvItems"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/mainIvHeroes"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintWidth_percent="0.5"
-            app:srcCompat="@drawable/dota_2" />
+            app:srcCompat="@drawable/items" />
 
         <TextView
             android:id="@+id/mainTvItems"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
-            android:text="Items"
+            android:fontFamily="serif"
+            android:text="ITEMS"
             android:textSize="24sp"
+            android:textStyle="italic"
             app:layout_constraintBottom_toBottomOf="@+id/mainIvItems"
             app:layout_constraintEnd_toEndOf="@+id/mainIvItems"
-            app:layout_constraintStart_toStartOf="@+id/mainIvItems" />
+            app:layout_constraintStart_toStartOf="@+id/mainIvItems"
+            app:layout_constraintTop_toTopOf="@+id/mainIvItems" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -77,6 +85,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mainConstraintLayout1">

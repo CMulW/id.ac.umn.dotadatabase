@@ -2,12 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="id.ac.umn.dotadatabase">
 
-
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
-    <uses-feature android:name="android.hardware.camera"
+    <uses-feature
+        android:name="android.hardware.camera"
         android:required="false" />
 
     <application
@@ -17,7 +17,10 @@
         android:roundIcon="@mipmap/custom_ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DotaDatabase">
-        <activity android:name=".EditProfileActivity"></activity>
+        <activity android:name=".HeroesListActivity"></activity>
+        <activity android:name=".ItemsMenuActivity" />
+        <activity android:name=".HeroesMenuActivity" />
+        <activity android:name=".EditProfileActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
