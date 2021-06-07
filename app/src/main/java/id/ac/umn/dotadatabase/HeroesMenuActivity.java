@@ -24,7 +24,7 @@ public class HeroesMenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(
-                        new Intent(HeroesMenuActivity.this, HeroesListActivity.class)
+                        new Intent(HeroesMenuActivity.this, ListActivity.class)
                                 .putExtra("data", new DotaData.StrengthHeroesData())
                 );
             }
@@ -33,7 +33,7 @@ public class HeroesMenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(
-                        new Intent(HeroesMenuActivity.this, HeroesListActivity.class)
+                        new Intent(HeroesMenuActivity.this, ListActivity.class)
                                 .putExtra("data", new DotaData.AgilityHeroesData())
                 );
             }
@@ -42,7 +42,7 @@ public class HeroesMenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(
-                        new Intent(HeroesMenuActivity.this, HeroesListActivity.class)
+                        new Intent(HeroesMenuActivity.this, ListActivity.class)
                                 .putExtra("data", new DotaData.IntelligenceHeroesData())
                 );
             }

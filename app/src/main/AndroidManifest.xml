@@ -17,7 +17,7 @@
         android:roundIcon="@mipmap/custom_ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DotaDatabase">
-        <activity android:name=".HeroesListActivity"></activity>
+        <activity android:name=".ListActivity"></activity>
         <activity android:name=".ItemsMenuActivity" />
         <activity android:name=".HeroesMenuActivity" />
         <activity android:name=".EditProfileActivity" />
